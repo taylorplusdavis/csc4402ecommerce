@@ -43,7 +43,7 @@ app.post("/api/get", (req, res) => {
   let email = req.body.Email;
   let customStatement = req.body.CustomStatement;
 
-  if (customStatement !== "") {
+  if (customStatement !== undefined) {
     db.query(`${customStatement}`, [customStatement], (err, result) => {
       if (err) {
         console.log(err);

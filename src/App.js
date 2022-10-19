@@ -43,6 +43,9 @@ function App() {
     e.preventDefault();
 
     Axios.post("http://localhost:3001/api/get", {
+      FirstName: firstNameFindRef.current.value,
+      LastName: lastNameFindRef.current.value,
+      Email: emailFindRef.current.value,
       CustomStatement: customStatementRef.current.value,
     }).then((res) => setClients(res.data));
   };
@@ -87,7 +90,7 @@ function App() {
       <sidebar className="sidebar">
         {clients?.map((client, i) => (
           <p key={client.ID}>
-            User {i + 1} from MySQL is{" "}
+            User {client.ID} from MySQL is{" "}
             {client?.FirstName +
               " " +
               client?.LastName +
