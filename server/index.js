@@ -41,18 +41,28 @@ app.post("/api/get", (req, res) => {
   let firstName = req.body.FirstName;
   let lastName = req.body.LastName;
   let email = req.body.Email;
+  let customStatement = req.body.CustomStatement;
 
-  db.query(
-    `SELECT * FROM clientstest WHERE FirstName = ? OR LastName = ? OR Email = ?`,
-    [firstName, lastName, email],
-    (err, result) => {
+  if (customStatement !== "") {
+    db.query(`${customStatement}`, [customStatement], (err, result) => {
       if (err) {
         console.log(err);
       } else {
         res.send(result);
       }
-    }
-  );
+    });
+  } else
+    db.query(
+      `SELECT * FROM clientstest WHERE FirstName = ? OR LastName = ? OR Email = ?`,
+      [firstName, lastName, email],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(result);
+        }
+      }
+    );
 });
 
 app.listen(PORT, () => {
