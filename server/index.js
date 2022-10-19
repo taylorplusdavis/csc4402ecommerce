@@ -9,7 +9,6 @@ app.use(express.json());
 
 //Route to get all clients
 app.get("/api/get", (req, res) => {
-  console.log("Accessed");
   db.query("SELECT * FROM clientstest", (err, result) => {
     if (err) {
       console.log(err);
@@ -17,6 +16,43 @@ app.get("/api/get", (req, res) => {
       res.send(result);
     }
   });
+});
+
+// Route to add a client
+app.post("/api/create", (req, res) => {
+  const firstName = req.body.FirstName;
+  const lastName = req.body.LastName;
+  const email = req.body.Email;
+  db.query(
+    "INSERT INTO clientstest (FirstName, LastName, Email) VALUES (?,?,?)",
+    [firstName, lastName, email],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
+// Route to find a client
+app.post("/api/get", (req, res) => {
+  let firstName = req.body.FirstName;
+  let lastName = req.body.LastName;
+  let email = req.body.Email;
+
+  db.query(
+    `SELECT * FROM clientstest WHERE FirstName = ? OR LastName = ? OR Email = ?`,
+    [firstName, lastName, email],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
 });
 
 app.listen(PORT, () => {
