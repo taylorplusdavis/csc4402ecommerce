@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Axios from "axios";
 import { useRef, useState } from "react";
@@ -43,9 +42,6 @@ function App() {
     e.preventDefault();
 
     Axios.post("http://localhost:3001/api/get", {
-      FirstName: firstNameFindRef.current.value,
-      LastName: lastNameFindRef.current.value,
-      Email: emailFindRef.current.value,
       CustomStatement: customStatementRef.current.value,
     }).then((res) => setClients(res.data));
   };
