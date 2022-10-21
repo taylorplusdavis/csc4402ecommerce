@@ -1,103 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap");
+
+:root {
+  /* Global color variables */
+  --primary-color: #9b0065;
+  --secondary-color: #ff4b1d;
+  --tertiary-color: #ff9f1c;
+  --darkest-gray: #1f1f1f;
+  --lightest-gray: #f5f5f5;
+  --white: #fff;
+  --black: #000;
+  --gradient-primary: -webkit-linear-gradient(
+    100deg,
+    var(--primary-color),
+    var(--secondary-color) 50%
+  );
+  /* Global font variables */
+  --header-font: "Lobster", cursive;
+  --body-font: "Lato", sans-serif;
+}
+
+/* Global margin and padding */
 * {
   margin: 0;
   padding: 0;
 }
 
 .App {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  flex: 1;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #424650;
-  width: 50%;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: #00000050 0px 4px 10px;
-}
-
-input {
-  width: 80%;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  color: #424650;
-}
-
-button {
-  width: 50%;
-  font-weight: bold;
-  max-width: 200px;
-  padding: 12px;
-  margin: 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  background-color: #fc4848;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #af3434;
-}
-.sidebar {
-  background-color: #282c34;
-  color: white;
-  font-size: 3rem;
+  background: var(--lightest-gray);
+  overflow: hidden;
+  width: 100vw;
   height: 100vh;
-  overflow-y: scroll;
-}
-
-@media screen and (max-width: 768px) {
-  .App {
-    grid-template-columns: 1fr;
-  }
-
-  form {
-    width: 66vw;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
