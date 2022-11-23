@@ -17,7 +17,8 @@ function Navbar() {
         <Link to="/">
           <img src={logo} alt="logo" className="nav__logo" />
         </Link>
-        {/* <p className="nav__logo_text">Simply Apparel</p> */}
+
+        <p className="nav__logo_text">Swappy</p>
       </div>
       {/* center */}
       <div className="nav__center">

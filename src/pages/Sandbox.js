@@ -12,7 +12,8 @@ function Sandbox() {
   const customStatementRef = useRef();
 
   const getClients = () => {
-    Axios.get("http://localhost:3001/api/get").then((res) => {
+    console.log("Clicked");
+    Axios.get("http://localhost:3002/api/get").then((res) => {
       setClients(res.data);
     });
   };
@@ -20,7 +21,7 @@ function Sandbox() {
   const addClients = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3001/api/create", {
+    Axios.post("http://localhost:3002/api/create", {
       FirstName: firstNameRef.current.value,
       LastName: lastNameRef.current.value,
       Email: emailRef.current.value,
@@ -30,7 +31,7 @@ function Sandbox() {
   const findClients = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3001/api/get", {
+    Axios.post("http://localhost:3002/api/get", {
       FirstName: firstNameFindRef.current.value,
       LastName: lastNameFindRef.current.value,
       Email: emailFindRef.current.value,
@@ -40,7 +41,7 @@ function Sandbox() {
   const customStatement = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3001/api/get", {
+    Axios.post("http://localhost:3002/api/get", {
       CustomStatement: customStatementRef.current.value,
     }).then((res) => setClients(res.data));
   };

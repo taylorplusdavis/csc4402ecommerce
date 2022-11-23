@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import "./Hero.css";
 
@@ -18,7 +19,9 @@ function Hero() {
           With new styles arriving everyday, you'll find the perfect look for
           any fall occasion.
         </p>
-        <button className="hero__btn">Shop Now</button>
+        <button className="hero__btn">
+          Shop Now <ChevronRightIcon className="hero__btn_icon" />
+        </button>
       </div>
     </div>
   );

@@ -47,11 +47,16 @@
   font-size: 1.5rem;
   font-weight: 400;
   padding: 0.5rem 1rem;
-  border: 3px solid rgba(255, 255, 255, 0.178);
+  border: 0px solid rgba(255, 255, 255, 0.178);
   border-radius: 5px;
   background-color: var(--secondary-color);
-  width: 50%;
+  width: 30%;
   align-self: center;
   color: var(--white);
   cursor: pointer;
+}
+
+.hero__btn_icon {
+  height: 24px;
+  display: inline;
 }
