@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import {
+  CalendarDaysIcon,
   HeartIcon,
   ShoppingBagIcon,
   ShoppingCartIcon,
@@ -10,6 +11,7 @@ import {
 import logo from "../../assets/images/logo.png";
 
 function Navbar() {
+  const [cart, setCart] = useState([]);
   return (
     <div className="nav">
       {/* left */}
@@ -47,7 +49,7 @@ function Navbar() {
         </Link>
         <Link className="nav__right_links" to="/">
           <ShoppingBagIcon className="nav__icon" />
-          <p className="nav__cart_count">0</p>
+          <p className="nav__cart_count">{cart.length}</p>
         </Link>
       </div>
     </div>

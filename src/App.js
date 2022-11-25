@@ -5,6 +5,8 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar/Navbar";
 import Cart from "./pages/Cart";
 import Sandbox from "./pages/Sandbox";
+import Mens from "./pages/Mens/Mens";
+import Womens from "./pages/Womens/Womens";
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/mens" element={<Mens />} />
+        <Route path="/womens" element={<Womens />} />
         <Route path="/sandbox" element={<Sandbox />} />
       </Routes>
     </div>

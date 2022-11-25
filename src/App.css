@@ -14,6 +14,11 @@
     var(--primary-color),
     var(--secondary-color) 50%
   );
+  --gradient-primary-reset: -webkit-linear-gradient(
+    100deg,
+    var(--secondary-color),
+    var(--secondary-color) 50%
+  );
   /* Global font variables */
   --header-font: "Lobster", cursive;
   --body-font: "Lato", sans-serif;
@@ -27,7 +32,6 @@
 
 .App {
   background: var(--lightest-gray);
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
 }

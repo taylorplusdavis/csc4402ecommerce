@@ -11,27 +11,28 @@ function Sandbox() {
   const emailFindRef = useRef();
   const customStatementRef = useRef();
 
-  const getClients = () => {
+  const getUsers = () => {
     console.log("Clicked");
-    Axios.get("http://localhost:3002/api/get").then((res) => {
+    Axios.get("http://localhost:3002/api/get/allusers").then((res) => {
+      console.log(res.data);
       setClients(res.data);
     });
   };
 
-  const addClients = (e) => {
+  const addUser = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3002/api/create", {
+    Axios.post("http://localhost:3002/api/create/insertuser", {
       FirstName: firstNameRef.current.value,
       LastName: lastNameRef.current.value,
       Email: emailRef.current.value,
     }).then((res) => console.log(res));
   };
 
-  const findClients = (e) => {
+  const searchUser = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3002/api/get", {
+    Axios.post("http://localhost:3002/api/get/searchuser", {
       FirstName: firstNameFindRef.current.value,
       LastName: lastNameFindRef.current.value,
       Email: emailFindRef.current.value,
@@ -41,7 +42,7 @@ function Sandbox() {
   const customStatement = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:3002/api/get", {
+    Axios.post("http://localhost:3002/api/send/customstatement", {
       CustomStatement: customStatementRef.current.value,
     }).then((res) => setClients(res.data));
   };
@@ -55,7 +56,7 @@ function Sandbox() {
           <input type="text" placeholder="First Name" ref={firstNameRef} />
           <input type="text" placeholder="Last Name" ref={lastNameRef} />
           <input type="email" placeholder="Email" ref={emailRef} />
-          <button type="submit" onClick={(e) => addClients(e)}>
+          <button type="submit" onClick={(e) => addUser(e)}>
             Create User
           </button>
         </form>
@@ -66,7 +67,7 @@ function Sandbox() {
           <input type="text" placeholder="Last Name" ref={lastNameFindRef} />
           <p>or</p>
           <input type="email" placeholder="Email" ref={emailFindRef} />
-          <button type="submit" onClick={(e) => findClients(e)}>
+          <button type="submit" onClick={(e) => searchUser(e)}>
             Find User
           </button>
         </form>
@@ -81,17 +82,17 @@ function Sandbox() {
             Execute
           </button>
         </form>
-        <button onClick={() => getClients()}>Read all from database</button>
+        <button onClick={() => getUsers()}>Read all from database</button>
       </header>
       <div className="sidebar">
         {clients?.map((client, i) => (
-          <p key={client.ID}>
-            User {client.ID} from MySQL is{" "}
-            {client?.FirstName +
+          <p key={client.id}>
+            User {client.id} from MySQL is{" "}
+            {client?.first_name +
               " " +
-              client?.LastName +
+              client?.last_name +
               ". Their email is: " +
-              client?.Email}
+              client?.email}
           </p>
         ))}
       </div>
