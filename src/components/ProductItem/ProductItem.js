@@ -22,6 +22,10 @@ function ProductItem({
         cart.push(id);
         localStorage.setItem("cart", JSON.stringify(cart));
       }
+    } else {
+      let cart = [];
+      cart.push(id);
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
 

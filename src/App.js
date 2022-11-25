@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import Navbar from "./components/Navbar/Navbar";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/Cart";
 import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
