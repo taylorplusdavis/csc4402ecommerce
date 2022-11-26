@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React from "react";
 import "./ProductItem.css";
 
@@ -14,19 +15,25 @@ function ProductItem({
     category,
   },
 }) {
-  const handleAddCart = () => {
-    let cart = localStorage.getItem("cart");
-    if (cart) {
-      cart = JSON.parse(cart);
-      if (!cart.includes(id)) {
-        cart.push(id);
-        localStorage.setItem("cart", JSON.stringify(cart));
-      }
-    } else {
-      let cart = [];
-      cart.push(id);
-      localStorage.setItem("cart", JSON.stringify(cart));
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    console.log("handling add cart");
+
+    if (!localStorage.getItem("1")) {
+      Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: "INSERT INTO cart(id, user_id) VALUES (1, 1)"
+      }).then((res) => {
+        localStorage.setItem("1", "1");
+      });
     }
+
+    Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: `INSERT INTO cart_item(id, cart_id, product_id) VALUES (${id}, 1, ${id})`
+      }).then((res) => {
+        localStorage.setItem("1", "1");
+      });
+
+    console.log("added to cart");
   };
 
   return (

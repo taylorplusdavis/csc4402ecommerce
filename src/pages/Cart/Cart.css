@@ -9,7 +9,8 @@
 .cart__container {
     background-color: white;
     width: 80%;
-    height: 85vh;
+    min-width: 1000px;
+    height: max-content;
     margin: 50px 0px;
     border-radius: 2px;
     display: flex;
@@ -19,11 +20,12 @@
 
 .cart__container__inner {
     width: 80%;
-    height: 90%;
+    margin: 50px 0px;
 }
 
 .cart__login {
-    width: 60%;
+    width: 55%;
+    min-width: 500px;
     height: 90px;
     margin: 75px 0px 25px 0px;
     border: 1.5px solid #eaeaea;
@@ -75,7 +77,7 @@
 
 .cart__change {
     background-color:  #f5f5f5;
-    width: 10%;
+    width: 70px;
     height: 40px;
     margin: -52px 25px 0px 0px;
     border: none;
@@ -93,7 +95,8 @@
 }
 
 .cart__shipping {
-    width: 60%;
+    width: 55%;
+    min-width: 500px;
     height: 120px;
     margin: 0px 0px 25px 0px;
     border: 1.5px solid #eaeaea;
@@ -101,8 +104,9 @@
 }
 
 .cart__payment__method__container {
-    width: 60%;
-    height: 59.4%;
+    width: 55%;
+    min-width: 500px;
+    height: 100px;
 }
 
 .cart__payment__method__label {
@@ -113,23 +117,74 @@
 }
 
 .cart__order {
-    height: 866px;
-    width: 35%; 
-    margin: -868px 0px 0px 0px;
+    height: max-content;
+    width: 40%; 
     border: 1px solid #eaeaea;
     border-radius: 10px;
+    position: relative;
+    bottom: 366px;
+    left: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    float: right;
 }
 
 .cart__order__inner {
     width: 80%;
-    height: 92%;
+    margin: 25px 0px;
 }
 
 .cart__order__label {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #eaeaea;
+}
+
+.items__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__item {
+    width: 100%;
+    height: max-content;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart__item__img {
+    width: 30%;
+    border-radius: 5px;
+}
+
+.cart__item__col {
+    margin: 0px 0px 0px 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__item__name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cart__item__price {
+    margin: 10px 0px 0px 0px;
+}
+
+.cart__item__remove {
+    color: gray;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.cart__order__inner p {
+    padding: 5px 0px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart__delivery__express {
+    color: gray;
 }

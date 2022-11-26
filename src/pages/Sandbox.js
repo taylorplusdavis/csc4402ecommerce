@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 
 function Sandbox() {
   const [clients, setClients] = useState([]);
+  const [result, setResult] = useState([]);
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
@@ -44,7 +45,10 @@ function Sandbox() {
 
     Axios.post("http://localhost:3002/api/send/customstatement", {
       CustomStatement: customStatementRef.current.value,
-    }).then((res) => setClients(res.data));
+    }).then((res) => {
+      console.log(res.data);
+      setResult(res.data);
+    });
   };
 
   return (
@@ -75,7 +79,7 @@ function Sandbox() {
           <p>Custom SQL Statement</p>
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="Custom SQL Statement"
             ref={customStatementRef}
           />
           <button type="submit" onClick={(e) => customStatement(e)}>

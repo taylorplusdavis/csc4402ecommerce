@@ -1,17 +1,69 @@
-import React from "react";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import "./Cart.css";
 
-function getOrder() {
-  let cart = localStorage.getItem("cart");
-}
-
-function getTotal() {
-
-}
-
 function Cart() {
+  const [order, setOrder] = useState();
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    Axios.post("http://localhost:3002/api/send/customstatement", {
+      CustomStatement: "SELECT * FROM cart_item WHERE cart_id = 1",
+    }).then((res) => {
+      console.log("order: ", res.data);
+      setOrder(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!order)
+      return;
+
+    for (let item of order) {
+      Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: `SELECT * FROM product WHERE id = ${item.id}`,
+      }).then((res) => {
+        setItems(prevItems => [...prevItems, res.data]);
+      });
+    }
+  }, [order]);
+
+  function deleteItem(id) {
+    console.log("remove clicked");
+    Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: `DELETE FROM cart_item WHERE product_id = ${id}`,
+      }).then((res) => {
+        console.log(res.data);
+      });
+    window.location.reload(false);
+  }
+
+  function getList() {
+    let list = items.map((item) => {
+      return(
+        <div key={item[0].id} className="cart__item">
+            <img className="cart__item__img" src={item[0].image_url}></img>
+            <div className="cart__item__col">
+               <p className="cart__item__name">{item[0].name}</p> 
+               <p className="cart__item__price">{item[0].price}</p>
+            </div>
+            <p className="cart__item__remove" onClick={() => deleteItem(item[0].id)}>Remove</p>
+        </div>
+      );
+    })
+    return list;
+  }
+  
+  function getTotal() {
+    let total = 0;
+    for (let item of items) {
+      total += item[0].price;
+    }
+    return Math.round(total * 100) / 100 + 5;
+  }
+
   return (
     <div className="cart__wrapper">
       <div className="cart__container">
@@ -41,10 +93,12 @@ function Cart() {
           <div className="cart__order">
             <div className="cart__order__inner">
               <h2 className="cart__order__label">Your Order</h2>
-              <div>{getOrder()}</div>
-              <p>Delivery $20</p>
-              <p>Discount -$10</p>
-              <p>Total {getTotal()}</p>
+              <div className="items__container">
+                {getList()}
+              </div>
+              <p><span>Delivery</span><span>$15 <span className="cart__delivery__express">(Express)</span></span></p>
+              <p><span>Discount</span><span>-$10</span></p>
+              <p><span>Total</span><span>${getTotal()}</span></p>
             </div>
           </div>
         </div>
