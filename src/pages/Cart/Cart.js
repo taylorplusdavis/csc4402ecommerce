@@ -98,7 +98,7 @@ function Cart() {
               </div>
               <p><span>Delivery</span><span>$15 <span className="cart__delivery__express">(Express)</span></span></p>
               <p><span>Discount</span><span>-$10</span></p>
-              <p><span>Total</span><span>${getTotal()}</span></p>
+              <p className="cart__total"><span>Total</span><span>${getTotal()}</span></p>
             </div>
           </div>
         </div>
