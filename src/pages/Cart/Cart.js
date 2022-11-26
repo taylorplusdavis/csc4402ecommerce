@@ -111,7 +111,7 @@ function Cart() {
                       <input className="card__input" type="month"></input>
                     </div>
                     <div className="col">
-                      <label className="card__label card__ccv" for="card__ccv">CCV*</label>
+                      <label className="card__label card__ccv" for="card__ccv">CCV *</label>
                       <input className="card__input card__ccv" type="number"></input>
                     </div>
                     <button className="pay__button">Pay ${getTotal()}</button>
