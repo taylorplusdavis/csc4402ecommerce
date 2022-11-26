@@ -269,13 +269,13 @@ hr {
 .pay__button {
     background: #ff4b1d;
     color: white;
-    width: 175px;
+    width: 185px;
     height: 62px;
     margin-left: 25px;
     margin-top: 54px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     transition: 0.25s ease all;
 }
