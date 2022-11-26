@@ -223,14 +223,14 @@
 }
 
 .cart__item__name {
-    font-size: 14px;
+    font-size: 16px !important;
     font-weight: 500;
 }
 
 .cart__item__price {
     margin: 10px 0px 0px 0px;
-    font-size: 16px !important;
-    font-weight: 600;
+    font-size: 18px !important;
+    font-weight: 700;
 }
 
 .cart__item__remove {
