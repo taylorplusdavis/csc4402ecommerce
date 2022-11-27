@@ -10,7 +10,7 @@ ul.list{
 	box-sizing: border-box;
 }
 
-body {
+.bodylogin {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -21,13 +21,9 @@ body {
 	margin: -20px 0 50px;
 }
 
-h1 {
+.h1login {
 	font-weight: bold;
 	margin: 0;
-}
-
-h2 {
-	text-align: center;
 }
 
 .wrongep{
@@ -38,7 +34,7 @@ h2 {
     margin-top: 10px;
 }
 
-p {
+.paralogin {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -46,18 +42,18 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
+.spanlogin {
 	font-size: 12px;
 }
 
-a {
+.alogin {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
 }
 
-button {
+.buttonlogin {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -70,20 +66,20 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.buttonlogin:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.buttonlogin:focus {
 	outline: none;
 }
 
-button.ghost {
+.buttonlogin.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
+.formlogin {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -94,7 +90,7 @@ form {
 	text-align: center;
 }
 
-input {
+.inputlogin {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
