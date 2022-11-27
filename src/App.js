@@ -9,20 +9,30 @@ import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
 
+
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+      <div>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/mens" element={<Mens />} />
-        <Route path="/womens" element={<Womens />} />
-        <Route path="/sandbox" element={<Sandbox />} />
       </Routes>
-    </div>
+      </div>
+  );
+}
+
+function navApp(){
+  return(
+  <div className="App">
+  <Navbar />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="/cart" element={<Cart />} />
+    <Route path="/mens" element={<Mens />} />
+    <Route path="/womens" element={<Womens />} />
+    <Route path="/sandbox" element={<Sandbox />} />
+  </Routes>
+</div>
   );
 }
 

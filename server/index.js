@@ -32,13 +32,16 @@ app.get("/api/get/recent", (req, res) => {
 });
 
 // Route to add a client
-app.post("/api/create/insertuser", (req, res) => {
-  const firstName = req.body.FirstName;
-  const lastName = req.body.LastName;
-  const email = req.body.Email;
+app.post("/api/send/registeruser", (req, res) => {
+  const firstName = req.body.first_name;
+  const lastName = req.body.last_name;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  
   db.query(
-    "INSERT INTO user (first_name, last_name, email) VALUES (?,?,?)",
-    [firstName, lastName, email],
+    "INSERT INTO user (first_name, last_name, email, password) VALUES (?,?,?,?)",
+    [firstName, lastName, email, password],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -51,17 +54,24 @@ app.post("/api/create/insertuser", (req, res) => {
 
 // Route to find a client
 app.post("/api/get/login", (req, res) => {
-  let password = req.body.Password;
-  let email = req.body.Email;
+
+  const email = req.body.email;
+  const password = req.body.password;
 
   db.query(
     `SELECT * FROM user WHERE email = ? AND password = ?`,
     [email, password],
     (err, result) => {
       if (err) {
-        console.log(err);
-      } else {
+        res.send({err: err});
+      } 
+
+
+      if(result.length > 0){
         res.send(result);
+      }
+      else{
+          res.send({message: "Wrong Email/Password combination!"});
       }
     }
   );
