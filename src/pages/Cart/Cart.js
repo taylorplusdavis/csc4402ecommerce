@@ -38,6 +38,11 @@ function Cart() {
   }
 
   function getList() {
+    if (items.length == 0) {
+      return (
+        <p className="empty__cart">Your cart is empty.</p>
+      );
+    }
     let list = items.map((item) => {
       return(
         <div key={item[0].id}>
