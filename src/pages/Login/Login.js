@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "./Login.css";
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function buttonpress(){
     const signUpButton = document.getElementById('signUp');
@@ -33,10 +34,10 @@ function Login(){
     const [password, setPassword] = useState('');
 
     const [loginStatus, setLoginStatus] = useState('');
+    const [emailstatus, setEmailStatus] = useState('');
 
-    const register = event => {
+    const register = () => {
 
-        event.preventDefault();
 
         Axios.post("http://localhost:3002/api/send/registeruser", {
             first_name: fnameReg,
@@ -48,7 +49,10 @@ function Login(){
         });
     };
 
+    const navigate = useNavigate();
+
     const Loginn = event => {
+
 
         event.preventDefault();
 
@@ -59,7 +63,8 @@ function Login(){
             if(response.data.message){
                 setLoginStatus(response.data.message);
             } else{
-                setLoginStatus(response.data[0].email);
+                setEmailStatus(response.data[0].email);
+                navigate('/home');
             }
         });
     };

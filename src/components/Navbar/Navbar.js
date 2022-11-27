@@ -16,7 +16,7 @@ function Navbar() {
     <div className="nav">
       {/* left */}
       <div className="nav__left">
-        <Link to="/">
+        <Link to="/home">
           <img src={logo} alt="logo" className="nav__logo" />
         </Link>
 

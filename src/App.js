@@ -8,32 +8,28 @@ import Cart from "./pages/Cart/Cart";
 import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
+import { render } from "@testing-library/react";
+
 
 
 function App() {
+
+
   return (
-      <div>
-      <Routes>
-        <Route path="/" element={<Login />} />
-      </Routes>
-      </div>
-  );
+    <div className="App">
+    <Routes>
+        <Route path='/' element={<Login />} />
+        <Route component={<Navbar />} />
+        <Route path="/home" element={[<Navbar />, <Home />]} />
+        <Route path="about" element={[<Navbar />, <About />]} />
+        <Route path="/cart" element={[<Navbar />, <Cart />]} />
+        <Route path="/mens" element={[<Navbar />, <Mens />]} />
+        <Route path="/womens" element={[<Navbar />, <Womens />]} />
+        <Route path="/sandbox" element={[<Navbar />, <Sandbox />]} />
+    </Routes>
+  </div>
+    );
 }
 
-function navApp(){
-  return(
-  <div className="App">
-  <Navbar />
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="about" element={<About />} />
-    <Route path="/cart" element={<Cart />} />
-    <Route path="/mens" element={<Mens />} />
-    <Route path="/womens" element={<Womens />} />
-    <Route path="/sandbox" element={<Sandbox />} />
-  </Routes>
-</div>
-  );
-}
 
 export default App;
