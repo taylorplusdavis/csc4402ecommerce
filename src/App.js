@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login/Login"
 import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import Navbar from "./components/Navbar/Navbar";
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/mens" element={<Mens />} />
