@@ -103,9 +103,9 @@ function Login(){
 		<h1 className="wrongep">{loginStatus}</h1>
 			<h1 className="h1login">Sign in</h1>
 			<span className="spanlogin">or use your account</span>
-			<input className="inputlogin" type='email' name='email' placeholder='email...' required onChange={(e)=>setEmail(e.target.value)} />
-			<input className="inputlogin" type='password' name='pwd' placeholder='password...' required onChange={(e)=>setPassword(e.target.value)}/>
-			<button className="buttonlogin" onClick={Loginn}>Login In</button>
+			<input className="inputlogin" type='email' name='email' placeholder='Email' required onChange={(e)=>setEmail(e.target.value)} />
+			<input className="inputlogin" type='password' name='pwd' placeholder='Password' required onChange={(e)=>setPassword(e.target.value)}/>
+			<button className="buttonlogin" onClick={Loginn}>Login</button>
 		</form>
 	</div>
 </div>
