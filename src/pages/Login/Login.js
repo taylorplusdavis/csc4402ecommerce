@@ -93,8 +93,8 @@ function Login(){
 			<span className="spanlogin">or use your email for registration</span>
 					<input className="inputlogin" type = 'First Name' name = 'Fname' placeholder = 'First Name' required onChange={(e)=>setFnameReg(e.target.value)}/>
                     <input className="inputlogin" type = 'Last Name' name = 'Lname' placeholder = 'Last Name' required onChange={(e)=>setLnameReg(e.target.value)}/>
-                    <input className="inputlogin" type = 'email' name = 'email' placeholder = 'email...' required onChange={(e)=>setEmailReg(e.target.value)}/>
-                    <input className="inputlogin" type = 'password' name = 'pwd' placeholder = 'password...' required onChange={(e)=>setPasswordReg(e.target.value)}/>
+                    <input className="inputlogin" type = 'email' name = 'email' placeholder = 'Email' required onChange={(e)=>setEmailReg(e.target.value)}/>
+                    <input className="inputlogin" type = 'password' name = 'pwd' placeholder = 'Password' required onChange={(e)=>setPasswordReg(e.target.value)}/>
 			<button className="buttonlogin" onClick={register}>Register</button>
 		</form>
 	</div>
