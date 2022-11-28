@@ -9,7 +9,7 @@ function Home() {
   useEffect(() => {
     axios.get("http://localhost:3002/api/get/recent").then((res) => {
       console.log(res.data);
-      setRecent(res.data);
+      setRecent(res.data.slice(0, 3));
     });
   }, []);
 

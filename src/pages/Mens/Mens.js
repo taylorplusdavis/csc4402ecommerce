@@ -13,10 +13,12 @@ function ProductsAll() {
     });
   }, []);
 
+  console.log(products);
+
   return (
     <div className="product__container">
       {products.map((product) => (
-        <ProductItem data={product} />
+        <ProductItem data={product} key={product.id} />
       ))}
     </div>
   );

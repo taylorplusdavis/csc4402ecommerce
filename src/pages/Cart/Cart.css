@@ -19,9 +19,9 @@
 
 .cart__container {
     background-color: white;
-    width: 80%;
-    min-width: 2025px;
-    height: 1100px;
+    width: 50%;
+    min-width: 1400px;
+    height: 900px;
     margin: 50px 0px;
     border-radius: 2px;
     display: flex;
@@ -34,7 +34,7 @@
 }
 
 .cart__login {
-    width: 120%;
+    width: 43vw;
     min-width: 500px;
     height: 90px;
     margin: 75px 0px 25px 0px;
@@ -105,7 +105,7 @@
 }
 
 .cart__shipping {
-    width: 120%;
+    width: 43vw;
     min-width: 500px;
     height: 120px;
     margin: 0px 0px 25px 0px;
@@ -114,14 +114,14 @@
 }
 
 .cart__payment__method__container {
-    width: 120%;
+    width: 100%;
     min-width: 500px;
     height: 100px;
 }
 
 .cart__payment__method__label {
     background-color: #f8f8f8;
-    width: 100%;
+    width: 43vw;
     height: 70px;
     border-radius: 10px;
 }
@@ -178,7 +178,7 @@
 
 .cart__order {
     height: max-content;
-    width: 750px; 
+    width: 29vw; 
     margin-top: 75px;
     border: 1px solid #eaeaea;
     border-radius: 10px;
@@ -212,7 +212,7 @@
 }
 
 .cart__item__img {
-    width: 15%;
+    width: 25%;
     border-radius: 5px;
 }
 
@@ -271,8 +271,7 @@ hr {
     color: white;
     width: 185px;
     height: 62px;
-    margin-left: 25px;
-    margin-top: 54px;
+    margin-top: 48px;
     border: none;
     border-radius: 8px;
     font-size: 17px;
@@ -289,7 +288,7 @@ hr {
 }
 
 .card__ccv {
-    margin-left: 50px;
+    margin-left: 25px;
 }
 
 .empty__cart {
