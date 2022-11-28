@@ -68,7 +68,6 @@ app.post("/api/get/login", (req, res) => {
 
 
       if(result.length > 0){
-        req.session.user = email;
         res.send(result);
       }
       else{
