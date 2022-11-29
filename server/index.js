@@ -215,6 +215,23 @@ app.post("/api/update/lastname", (req, res) => {
   );
 });
 
+app.post("/api/update/address", (req, res) => {
+    const id = req.body.id;
+    const address = req.body.address;
+  
+    db.query(
+      "UPDATE user SET address = ? WHERE id = ?",
+      [address, id],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send("Address updated!");
+        }
+      }
+    );
+  });
+
 app.post("/api/update/email", (req, res) => {
   const id = req.body.id;
   const email = req.body.email;

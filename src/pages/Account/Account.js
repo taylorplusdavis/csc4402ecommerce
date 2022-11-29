@@ -10,6 +10,7 @@ function Account() {
   const [lname, setLName] = useState("");
   const [email, setEmail] = useState("");
   const [npass, setNPass] = useState("");
+  const [address, setAddress] = useState("");
 
   useEffect(() => {
     Axios.post(`http://localhost:3002/api/get/user`, {
@@ -36,6 +37,17 @@ function Account() {
     Axios.post("http://localhost:3002/api/update/lastname", {
       id: cookies.id,
       last_name: lname,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
+
+  const updateAddress = (event) => {
+    event.preventDefault();
+
+    Axios.post("http://localhost:3002/api/update/address", {
+      id: cookies.id,
+      address: address,
     }).then((response) => {
       console.log(response);
     });
@@ -87,6 +99,17 @@ function Account() {
           ></input>
           <button className="updateButton" onClick={updateLastName}>
             Change Lastname
+          </button>
+        </div>
+        <div className="inputContainer">
+          <input
+            className="textInput"
+            type="text"
+            placeholder={user.address}
+            onChange={(e) => setAddress(e.target.value)}
+          ></input>
+          <button className="updateButton" onClick={updateAddress}>
+            Change Address
           </button>
         </div>
         <div className="inputContainer">
