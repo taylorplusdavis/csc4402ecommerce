@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import {
-  CalendarDaysIcon,
   HeartIcon,
   ArrowDownOnSquareIcon,
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
 import logo from "../../assets/images/logo.png";
+import { useCookies } from 'react-cookie';
 
 function Navbar() {
-  const [cart, setCart] = useState([]);
+
+  const [cookies, setCookie, removeCookie] = useCookies(['id']);
+
+  const deletecookie = () => {
+   removeCookie('id', { path: '/'});
+};
+
+
+
   return (
     <div className="nav">
       {/* left */}
@@ -48,7 +55,7 @@ function Navbar() {
           <UserIcon className="nav__icon" />
         </Link>
         <Link className="nav__right_links" to="/">
-          <ArrowDownOnSquareIcon className="nav__icon" />
+          <ArrowDownOnSquareIcon className="nav__icon"  onClick={deletecookie} />
         </Link>
       </div>
     </div>

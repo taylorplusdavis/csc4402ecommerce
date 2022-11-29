@@ -9,6 +9,8 @@ import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
 import Account from "./pages/Account/Account";
+import Accessories from "./pages/Accessories/Accessories";
+import Wishlist from "./pages/Wishlist/Wishlist";
 
 
 
@@ -22,7 +24,8 @@ function App() {
         <Route component={<Navbar />} />
         <Route path="/home" element={[<Navbar />, <Home />]} />
         <Route path="/account" element={[<Navbar />, <Account />]} />
-        <Route path="about" element={[<Navbar />, <About />]} />
+        <Route path="/accessories" element={[<Navbar />, <Accessories />]} />
+        <Route path="/likes" element={[<Navbar />, <Wishlist />]} />
         <Route path="/cart" element={[<Navbar />, <Cart />]} />
         <Route path="/mens" element={[<Navbar />, <Mens />]} />
         <Route path="/womens" element={[<Navbar />, <Womens />]} />

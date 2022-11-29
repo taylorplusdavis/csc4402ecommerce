@@ -24,7 +24,7 @@ signInButton.addEventListener('click', () => {
 
 function Login(){
 
-    const [cookies, setCookie] = useCookies(['email']);
+    const [cookies, setCookie] = useCookies(['id']);
 
     buttonpress();
 
@@ -66,7 +66,7 @@ function Login(){
                 setLoginStatus(response.data.message);
             } else{
                 var temp = response.data[0].id
-                setCookie('id', temp, { path: '/home'});
+                setCookie('id', temp, { path: '/'});
                 navigate('/home');
             }
         });

@@ -1,6 +1,8 @@
 import Axios from "axios";
 import React from "react";
 import "./ProductItem.css";
+import {useCookies} from 'react-cookie';
+import {useState} from 'react';
 
 function ProductItem({
   data: {
@@ -36,6 +38,20 @@ function ProductItem({
     console.log("added to cart");
   };
 
+  const [cookies] = useCookies(['id']);
+
+  const handleLikes = event => {
+
+    event.preventDefault();
+
+    Axios.post("http://localhost:3002/api/send/wishlistadd", {
+        id: cookies.id,
+        product: id,
+    }).then((response) => {
+        console.log(response);
+    });
+};
+
   return (
     <div key={id} className="prodItem__container">
       {/* image */}
@@ -56,6 +72,9 @@ function ProductItem({
       <div className="prodItem__bottom_container">
         <button className="prodItem__button" onClick={handleAddCart}>
           Add to Cart
+        </button>
+        <button className="prodItem__button" onClick={handleLikes}>
+          Add to Likes
         </button>
       </div>
     </div>

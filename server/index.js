@@ -31,6 +31,21 @@ app.get("/api/get/recent", (req, res) => {
   });
 });
 
+app.get("/api/get/wishlist", (req, res) => {
+
+  const id = req.body.id;
+
+  db.query("SELECT * FROM product WHERE id=(SELECT product_id FROM wishlist WHERE user_id = 1 AND product_id=product.id)",[id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const length = result?.data?.length;
+      result.data = result.data?.slice(length - 4, length);
+      res.send(result);
+    }
+  });
+});
+
 // Route to add a client
 app.post("/api/send/registeruser", (req, res) => {
   const firstName = req.body.first_name;
@@ -52,12 +67,45 @@ app.post("/api/send/registeruser", (req, res) => {
   );
 });
 
+app.post("/api/send/wishlistadd", (req, res) => {
+  const id = req.body.id;
+  const product = req.body.product;
+
+  db.query(
+    "INSERT INTO wishlist (user_id, product_id) VALUES (?,?)",
+    [id, product],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
+app.post("/api/send/wishlistremove", (req, res) => {
+  const id = req.body.id;
+  const product = req.body.product;
+
+  db.query(
+    "DELETE FROM wishlist WHERE user_id = ? AND product_id = ?",
+    [id, product],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
 // Route to find a client
 app.post("/api/get/login", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-  var id;
 
   db.query(
     `SELECT id FROM user WHERE email = ? AND password = ?`,
@@ -105,6 +153,16 @@ app.get("/api/get/mens", (req, res) => {
 //Route to get women's products
 app.get("/api/get/womens", (req, res) => {
   db.query("SELECT * FROM product WHERE sex = 'F'", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/api/get/accessories", (req, res) => {
+  db.query("SELECT * FROM product WHERE sex = 'A' ", (err, result) => {
     if (err) {
       console.log(err);
     } else {

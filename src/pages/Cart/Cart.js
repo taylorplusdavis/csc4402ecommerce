@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import "./Cart.css";
+import { useCookies } from 'react-cookie';
 
 function Cart() {
   const [order, setOrder] = useState();
   const [items, setItems] = useState([]);
+  const [cookies] = useCookies(['id']);
 
   useEffect(() => {
     Axios.post("http://localhost:3002/api/send/customstatement", {

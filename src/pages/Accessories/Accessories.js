@@ -1,28 +1,27 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import WishlistItems from "../../components/WishlistItem/WishlistItem";
-import "./Wishlist.css";
-import { useCookies } from 'react-cookie';
+import ProductItem from "../../components/ProductItem/ProductItem";
+import "./Accessories.css";
 
-function Wishlist() {
-
+function Accessories() {
   const [products, setProducts] = useState([]);
-  const [cookies] = useCookies(['id']);
 
   useEffect(() => {
-    Axios.get("http://localhost:3002/api/get/wishlist").then((res) => {
+    Axios.get("http://localhost:3002/api/get/accessories").then((res) => {
       console.log(res.data);
       setProducts(res.data);
     });
   }, []);
 
+  console.log(products);
+
   return (
     <div className="product__container">
       {products.map((product) => (
-        <WishlistItems data={product} />
+        <ProductItem data={product} key={product.id} />
       ))}
     </div>
   );
 }
 
-export default Wishlist;
+export default Accessories;
