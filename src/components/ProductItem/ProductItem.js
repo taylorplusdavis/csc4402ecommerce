@@ -1,5 +1,8 @@
+import Axios from "axios";
 import React from "react";
 import "./ProductItem.css";
+import {useCookies} from 'react-cookie';
+import {useState} from 'react';
 
 function ProductItem({
   data: {
@@ -14,16 +17,40 @@ function ProductItem({
     category,
   },
 }) {
-  const handleAddCart = () => {
-    let cart = localStorage.getItem("cart");
-    if (cart) {
-      cart = JSON.parse(cart);
-      if (!cart.includes(id)) {
-        cart.push(id);
-        localStorage.setItem("cart", JSON.stringify(cart));
-      }
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    console.log("handling add cart");
+
+    if (!localStorage.getItem("1")) {
+      Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: "INSERT INTO cart(id, user_id) VALUES (1, 1)"
+      }).then((res) => {
+        localStorage.setItem("1", "1");
+      });
     }
+
+    Axios.post("http://localhost:3002/api/send/customstatement", {
+        CustomStatement: `INSERT INTO cart_item(id, cart_id, product_id) VALUES (${id}, 1, ${id})`
+      }).then((res) => {
+        localStorage.setItem("1", "1");
+      });
+
+    console.log("added to cart");
   };
+
+  const [cookies] = useCookies(['id']);
+
+  const handleLikes = event => {
+
+    event.preventDefault();
+
+    Axios.post("http://localhost:3002/api/send/wishlistadd", {
+        id: cookies.id,
+        product: id,
+    }).then((response) => {
+        console.log(response);
+    });
+};
 
   return (
     <div key={id} className="prodItem__container">
@@ -45,6 +72,9 @@ function ProductItem({
       <div className="prodItem__bottom_container">
         <button className="prodItem__button" onClick={handleAddCart}>
           Add to Cart
+        </button>
+        <button className="prodItem__button_likes" onClick={handleLikes}>
+          Add to Likes
         </button>
       </div>
     </div>

@@ -1,8 +1,10 @@
 .home__recent_container {
+  width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
-  margin: 1rem;
+  padding-left: 4vw;
+  padding-bottom: 25px;
 }
 
 .home__container {

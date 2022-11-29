@@ -1,13 +1,13 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import ProductItem from "../../components/ProductItem/ProductItem";
-import "./Mens.css";
+import "./Accessories.css";
 
-function ProductsAll() {
+function Accessories() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3002/api/get/mens").then((res) => {
+    Axios.get("http://localhost:3002/api/get/accessories").then((res) => {
       console.log(res.data);
       setProducts(res.data);
     });
@@ -24,4 +24,4 @@ function ProductsAll() {
   );
 }
 
-export default ProductsAll;
+export default Accessories;

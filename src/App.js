@@ -1,27 +1,39 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login/Login"
 import Home from "./pages/Home/Home";
 import About from "./pages/About";
 import Navbar from "./components/Navbar/Navbar";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/Cart";
 import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
+import Account from "./pages/Account/Account";
+import Accessories from "./pages/Accessories/Accessories";
+import Wishlist from "./pages/Wishlist/Wishlist";
+
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/mens" element={<Mens />} />
-        <Route path="/womens" element={<Womens />} />
-        <Route path="/sandbox" element={<Sandbox />} />
-      </Routes>
-    </div>
-  );
+    <Routes>
+        <Route path='/' element={<Login />} />
+        <Route component={<Navbar />} />
+        <Route path="/home" element={[<Navbar />, <Home />]} />
+        <Route path="/account" element={[<Navbar />, <Account />]} />
+        <Route path="/accessories" element={[<Navbar />, <Accessories />]} />
+        <Route path="/likes" element={[<Navbar />, <Wishlist />]} />
+        <Route path="/cart" element={[<Navbar />, <Cart />]} />
+        <Route path="/mens" element={[<Navbar />, <Mens />]} />
+        <Route path="/womens" element={[<Navbar />, <Womens />]} />
+        <Route path="/sandbox" element={[<Navbar />, <Sandbox />]} />
+    </Routes>
+  </div>
+    );
 }
+
 
 export default App;
