@@ -171,6 +171,58 @@ app.get("/api/get/accessories", (req, res) => {
   });
 });
 
+app.post("/api/update/firstname", (req, res) => {
+    const id = req.body.id;
+    const firstname = req.body.first_name
+
+    db.query("UPDATE user SET first_name = ? WHERE id = ?", [firstname, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("First name updated!");
+        }
+    })
+})
+
+app.post("/api/update/lastname", (req, res) => {
+    const id = req.body.id;
+    const last_name = req.body.last_name
+
+    db.query("UPDATE user SET last_name = ? WHERE id = ?", [last_name, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("Last name updated!");
+        }
+    })
+})
+
+app.post("/api/update/email", (req, res) => {
+    const id = req.body.id;
+    const email = req.body.email
+
+    db.query("UPDATE user SET email = ? WHERE id = ?", [email, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("Email updated!");
+        }
+    })
+})
+
+app.post("/api/update/password", (req, res) => {
+    const id = req.body.id;
+    const password = req.body.password
+
+    db.query("UPDATE user SET password = ? WHERE id = ?", [password, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send("Password updated!");
+        }
+    })
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
