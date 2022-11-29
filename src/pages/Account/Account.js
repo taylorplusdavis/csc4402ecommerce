@@ -63,7 +63,7 @@ function Account(){
                 <div><input className="textInput" type="text" placeholder="First name" onChange={(e)=>setFName(e.target.value)}></input><button className="updateButton" onClick={updateFirstName}>Change Firstname</button></div>
                 <div><input className="textInput" type="text" placeholder="Last name" onChange={(e)=>setLName(e.target.value)}></input><button className="updateButton" onClick={updateLastName}>Change Lastname</button></div>
                 <div><input className="textInput" type="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}></input><button className="updateButton" onClick={updateEmail}>Change Email</button></div>
-                <div><input className="textInput" type="text" placeholder="password" onChange={(e)=>setNPass(e.target.value)}></input><button className="updateButton" onClick={updatePass}>Change Password</button></div>
+                <div><input className="textInput" type="text" placeholder="Password" onChange={(e)=>setNPass(e.target.value)}></input><button className="updateButton" onClick={updatePass}>Change Password</button></div>
             </form>
         </div>
     )
