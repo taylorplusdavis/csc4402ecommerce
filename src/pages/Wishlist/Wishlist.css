@@ -1,7 +1,8 @@
 .product__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 1rem;
-    margin: 1rem;
-  }
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  padding-left: 2vw;
+}
   

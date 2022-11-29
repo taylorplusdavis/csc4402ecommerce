@@ -73,7 +73,7 @@ function ProductItem({
         <button className="prodItem__button" onClick={handleAddCart}>
           Add to Cart
         </button>
-        <button className="prodItem__button" onClick={handleLikes}>
+        <button className="prodItem__button_likes" onClick={handleLikes}>
           Add to Likes
         </button>
       </div>
