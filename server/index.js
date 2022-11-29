@@ -20,12 +20,12 @@ app.get("/api/get/allusers", (req, res) => {
 
 //Route to get last 5 products
 app.get("/api/get/recent", (req, res) => {
-  db.query("SELECT * FROM product", (err, result) => {
+  db.query("SELECT * FROM product LIMIT 5", (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      const length = result?.data?.length;
-      result.data = result.data?.slice(length - 4, length);
+      // const length = result?.data?.length;
+      // result.data = result.data?.slice(length - 4, length);
       res.send(result);
     }
   });
