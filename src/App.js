@@ -8,7 +8,7 @@ import Cart from "./pages/Cart/Cart";
 import Sandbox from "./pages/Sandbox";
 import Mens from "./pages/Mens/Mens";
 import Womens from "./pages/Womens/Womens";
-import { render } from "@testing-library/react";
+import Account from "./pages/Account/Account";
 
 
 
@@ -21,6 +21,7 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route component={<Navbar />} />
         <Route path="/home" element={[<Navbar />, <Home />]} />
+        <Route path="/account" element={[<Navbar />, <Account />]} />
         <Route path="about" element={[<Navbar />, <About />]} />
         <Route path="/cart" element={[<Navbar />, <Cart />]} />
         <Route path="/mens" element={[<Navbar />, <Mens />]} />

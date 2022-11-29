@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   CalendarDaysIcon,
   HeartIcon,
-  ShoppingBagIcon,
+  ArrowDownOnSquareIcon,
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
@@ -48,8 +48,7 @@ function Navbar() {
           <UserIcon className="nav__icon" />
         </Link>
         <Link className="nav__right_links" to="/">
-          <ShoppingBagIcon className="nav__icon" />
-          <p className="nav__cart_count">{cart.length}</p>
+          <ArrowDownOnSquareIcon className="nav__icon" />
         </Link>
       </div>
     </div>

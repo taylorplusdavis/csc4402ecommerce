@@ -57,9 +57,10 @@ app.post("/api/get/login", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
+  var id;
 
   db.query(
-    `SELECT * FROM user WHERE email = ? AND password = ?`,
+    `SELECT id FROM user WHERE email = ? AND password = ?`,
     [email, password],
     (err, result) => {
       if (err) {

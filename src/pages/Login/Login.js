@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "./Login.css";
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 function buttonpress(){
     const signUpButton = document.getElementById('signUp');
@@ -23,6 +24,8 @@ signInButton.addEventListener('click', () => {
 
 function Login(){
 
+    const [cookies, setCookie] = useCookies(['email']);
+
     buttonpress();
 
     const [fnameReg, setFnameReg] = useState('');
@@ -34,7 +37,6 @@ function Login(){
     const [password, setPassword] = useState('');
 
     const [loginStatus, setLoginStatus] = useState('');
-    const [emailstatus, setEmailStatus] = useState('');
 
     const register = () => {
 
@@ -63,7 +65,8 @@ function Login(){
             if(response.data.message){
                 setLoginStatus(response.data.message);
             } else{
-                setEmailStatus(response.data[0].email);
+                var temp = response.data[0].id
+                setCookie('id', temp, { path: '/home'});
                 navigate('/home');
             }
         });
